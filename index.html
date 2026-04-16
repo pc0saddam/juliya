@@ -1,0 +1,674 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+  <title>Juliyavlogs 07 | Real Moments, Real Life</title>
+  <!-- Google Fonts + Font Awesome CDN -->
+  <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,300;14..32,400;14..32,600;14..32,700;14..32,800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Inter', sans-serif;
+      background: #0a0a0a;
+      color: #f5f0e6;
+      scroll-behavior: smooth;
+      line-height: 1.5;
+    }
+
+    /* Dark + Gold Theme */
+    :root {
+      --bg-dark: #0c0b0b;
+      --surface-dark: #141212;
+      --gold-primary: #f5b042;
+      --gold-light: #ffce7a;
+      --gold-glow: rgba(245, 176, 66, 0.3);
+      --text-light: #f2ede4;
+      --text-muted: #b9b1a4;
+      --border-gold: rgba(245, 176, 66, 0.25);
+    }
+
+    /* Sticky navbar */
+    .navbar {
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+      background: rgba(12, 11, 11, 0.92);
+      backdrop-filter: blur(12px);
+      border-bottom: 1px solid var(--border-gold);
+      padding: 1rem 2rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 1rem;
+    }
+
+    .logo {
+      font-size: 1.7rem;
+      font-weight: 800;
+      background: linear-gradient(135deg, #f5b042, #ffda88);
+      -webkit-background-clip: text;
+      background-clip: text;
+      color: transparent;
+      letter-spacing: -0.5px;
+    }
+
+    .nav-links {
+      display: flex;
+      gap: 2rem;
+      list-style: none;
+      flex-wrap: wrap;
+    }
+
+    .nav-links a {
+      color: var(--text-light);
+      text-decoration: none;
+      font-weight: 500;
+      transition: 0.25s ease;
+      font-size: 1rem;
+    }
+
+    .nav-links a:hover {
+      color: var(--gold-primary);
+      transform: translateY(-2px);
+    }
+
+    /* container utility */
+    .container {
+      max-width: 1280px;
+      margin: 0 auto;
+      padding: 0 1.8rem;
+    }
+
+    section {
+      padding: 5rem 0;
+      border-bottom: 1px solid rgba(245, 176, 66, 0.1);
+    }
+
+    h2 {
+      font-size: 2.3rem;
+      font-weight: 700;
+      margin-bottom: 2rem;
+      position: relative;
+      display: inline-block;
+      letter-spacing: -0.3px;
+    }
+
+    h2:after {
+      content: '';
+      position: absolute;
+      bottom: -10px;
+      left: 0;
+      width: 65px;
+      height: 4px;
+      background: linear-gradient(90deg, var(--gold-primary), #ffd966);
+      border-radius: 4px;
+    }
+
+    /* Hero Section */
+    .hero {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      justify-content: space-between;
+      gap: 2.5rem;
+    }
+
+    .hero-content {
+      flex: 1.2;
+    }
+
+    .hero-content h1 {
+      font-size: 2.7rem;
+      font-weight: 800;
+      line-height: 1.2;
+      background: linear-gradient(to right, #ffffff, #ffdd99);
+      -webkit-background-clip: text;
+      background-clip: text;
+      color: transparent;
+      margin-bottom: 1rem;
+    }
+
+    .hero-content p {
+      font-size: 1.2rem;
+      color: var(--text-muted);
+      margin: 1rem 0 2rem;
+    }
+
+    .btn-group {
+      display: flex;
+      gap: 1.2rem;
+      flex-wrap: wrap;
+    }
+
+    .btn {
+      padding: 0.8rem 1.8rem;
+      font-weight: 600;
+      border-radius: 40px;
+      text-decoration: none;
+      transition: 0.25s ease;
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      font-size: 1rem;
+      cursor: pointer;
+      border: none;
+    }
+
+    .btn-primary {
+      background: var(--gold-primary);
+      color: #0a0a0a;
+      box-shadow: 0 5px 12px rgba(245, 176, 66, 0.3);
+    }
+
+    .btn-primary:hover {
+      background: #ffc75f;
+      transform: translateY(-3px);
+      box-shadow: 0 10px 20px rgba(245, 176, 66, 0.4);
+    }
+
+    .btn-outline {
+      border: 1.5px solid var(--gold-primary);
+      background: transparent;
+      color: var(--gold-primary);
+    }
+
+    .btn-outline:hover {
+      background: rgba(245, 176, 66, 0.1);
+      transform: translateY(-3px);
+    }
+
+    .hero-image {
+      flex: 0.8;
+      display: flex;
+      justify-content: center;
+    }
+
+    .profile-img {
+      width: 280px;
+      height: 280px;
+      object-fit: cover;
+      border-radius: 50%;
+      border: 3px solid var(--gold-primary);
+      box-shadow: 0 20px 35px -10px rgba(0,0,0,0.5), 0 0 0 8px rgba(245, 176, 66, 0.2);
+      transition: transform 0.3s;
+    }
+
+    .profile-img:hover {
+      transform: scale(1.02);
+    }
+
+    /* stats cards */
+    .stats-row {
+      display: flex;
+      gap: 2rem;
+      background: var(--surface-dark);
+      border-radius: 30px;
+      padding: 1.2rem 2rem;
+      margin: 2rem 0 0;
+      justify-content: center;
+      flex-wrap: wrap;
+      border: 1px solid var(--border-gold);
+    }
+
+    .stat-card {
+      text-align: center;
+      padding: 0.5rem 1rem;
+    }
+
+    .stat-number {
+      font-size: 2rem;
+      font-weight: 800;
+      color: var(--gold-primary);
+    }
+
+    /* YouTube Grid */
+    .video-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+      gap: 2rem;
+      margin: 2rem 0;
+    }
+
+    .video-card {
+      background: #181616;
+      border-radius: 24px;
+      overflow: hidden;
+      transition: 0.2s ease;
+      border: 1px solid #2a2525;
+    }
+
+    .video-card:hover {
+      transform: translateY(-5px);
+      border-color: var(--gold-primary);
+      box-shadow: 0 15px 25px -12px rgba(0,0,0,0.6);
+    }
+
+    .video-card iframe {
+      width: 100%;
+      aspect-ratio: 16 / 9;
+      border: none;
+    }
+
+    .youtube-stats {
+      background: #141111;
+      padding: 1rem 2rem;
+      border-radius: 50px;
+      display: inline-flex;
+      align-items: center;
+      gap: 2rem;
+      flex-wrap: wrap;
+      margin: 1rem 0;
+    }
+
+    /* social icons */
+    .social-links {
+      display: flex;
+      gap: 2rem;
+      margin: 1.5rem 0;
+      flex-wrap: wrap;
+    }
+
+    .social-icon {
+      background: #1f1c1c;
+      width: 58px;
+      height: 58px;
+      border-radius: 30px;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 2rem;
+      transition: all 0.2s;
+      color: var(--gold-primary);
+      text-decoration: none;
+    }
+
+    .social-icon:hover {
+      background: var(--gold-primary);
+      color: #0a0a0a;
+      transform: scale(1.05);
+    }
+
+    /* gallery */
+    .gallery-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
+      gap: 1.5rem;
+    }
+
+    .gallery-item {
+      border-radius: 20px;
+      overflow: hidden;
+      height: 240px;
+      background: #1e1b1b;
+    }
+
+    .gallery-item img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transition: 0.4s ease;
+    }
+
+    .gallery-item:hover img {
+      transform: scale(1.05);
+      opacity: 0.85;
+    }
+
+    /* testimonials */
+    .testimonial {
+      background: linear-gradient(145deg, #141010, #0c0909);
+      border-radius: 40px;
+      padding: 2rem 2rem;
+      text-align: center;
+      border-left: 5px solid var(--gold-primary);
+      font-size: 1.3rem;
+      font-weight: 400;
+      margin-top: 1rem;
+    }
+
+    /* contact form */
+    .contact-form {
+      background: #111010;
+      padding: 2rem;
+      border-radius: 32px;
+      max-width: 700px;
+      margin-top: 1rem;
+    }
+
+    .form-group {
+      margin-bottom: 1.2rem;
+    }
+
+    input, textarea {
+      width: 100%;
+      padding: 1rem;
+      background: #1e1b1b;
+      border: 1px solid #2e2a2a;
+      border-radius: 28px;
+      color: white;
+      font-family: inherit;
+      transition: 0.2s;
+    }
+
+    input:focus, textarea:focus {
+      outline: none;
+      border-color: var(--gold-primary);
+      box-shadow: 0 0 0 2px rgba(245, 176, 66, 0.3);
+    }
+
+    .btn-submit {
+      background: var(--gold-primary);
+      border: none;
+      padding: 0.9rem 2rem;
+      font-weight: bold;
+      color: #0a0a0a;
+      border-radius: 40px;
+      cursor: pointer;
+    }
+
+    footer {
+      text-align: center;
+      padding: 2rem;
+      font-size: 1rem;
+      background: #050505;
+      border-top: 1px solid var(--border-gold);
+    }
+
+    /* Responsive */
+    @media (max-width: 780px) {
+      .navbar {
+        flex-direction: column;
+        padding: 1rem;
+      }
+      .hero {
+        flex-direction: column-reverse;
+        text-align: center;
+      }
+      .hero-content h1 {
+        font-size: 2rem;
+      }
+      .btn-group {
+        justify-content: center;
+      }
+      h2:after {
+        left: 50%;
+        transform: translateX(-50%);
+      }
+      h2 {
+        text-align: center;
+        display: block;
+      }
+      .stats-row {
+        gap: 1rem;
+      }
+    }
+
+    .country-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      background: #1e1919;
+      padding: 0.5rem 1rem;
+      border-radius: 50px;
+      font-size: 0.9rem;
+      margin-top: 1rem;
+    }
+
+    .sub-highlight {
+      font-size: 1rem;
+      color: var(--gold-primary);
+      font-weight: 500;
+    }
+
+    i.fa, i.fab {
+      margin-right: 5px;
+    }
+
+    .highlight-milestone {
+      font-weight: 800;
+    }
+  </style>
+</head>
+<body>
+
+<nav class="navbar">
+  <div class="logo">✨ Juliyavlogs 07</div>
+  <ul class="nav-links">
+    <li><a href="#home">Home</a></li>
+    <li><a href="#about">About</a></li>
+    <li><a href="#youtube">YouTube</a></li>
+    <li><a href="#gallery">Gallery</a></li>
+    <li><a href="#contact">Contact</a></li>
+  </ul>
+</nav>
+
+<main>
+  <!-- Home / Hero Section -->
+  <section id="home">
+    <div class="container hero">
+      <div class="hero-content">
+        <h1>Juliyavlogs 07 – <br>Real Moments, Real Life, Real Me</h1>
+        <p>Spreading happiness and positivity through daily vlogs. From India with love ❤️</p>
+        <div class="btn-group">
+          <a href="#youtube" class="btn btn-primary"><i class="fab fa-youtube"></i> Watch Videos</a>
+          <a href="https://www.youtube.com/@Juliyavlogs07?sub_confirmation=1" target="_blank" class="btn btn-outline"><i class="fab fa-google-plus-g"></i> Subscribe Now</a>
+        </div>
+        <div class="stats-row">
+          <div class="stat-card"><span class="stat-number">35K+</span><br>Subscribers</div>
+          <div class="stat-card"><span class="stat-number">72M+</span><br>Views</div>
+          <div class="stat-card"><span class="stat-number">❤️ 1M+</span><br>Family</div>
+        </div>
+      </div>
+      <div class="hero-image">
+        <!-- Profile image placeholder (vlogger style) -->
+        <img class="profile-img" src="https://yt3.googleusercontent.com/c3sUA5QIgu-UEZ-kUwHdAbjcdexnsy2_20pjvCh2VVZoG2OBiIVNO24ZfcCXZ-lChHYBNe1j=s160-c-k-c0x00ffffff-no-rj" alt="Juliyavlogs 07 profile">
+      </div>
+    </div>
+  </section>
+
+  <!-- About Section -->
+  <section id="about">
+    <div class="container">
+      <h2>About me 💛</h2>
+      <div style="max-width: 800px;">
+        <p style="font-size: 1.25rem; margin-bottom: 1rem;">Hi, I am your good friend 😊. I create content to spread happiness, knowledge, and positivity. Thank you for supporting me on this journey.</p>
+        <p style="font-size: 1.15rem; background: rgba(245,176,66,0.1); padding: 1rem; border-radius: 30px; display: inline-block;"><strong>🎯 Goal:</strong> <span class="highlight-milestone">Let’s reach 10 million together!</span> 🌟</p>
+        <div style="margin-top: 1.5rem;">
+          <i class="fas fa-map-marker-alt" style="color: var(--gold-primary);"></i> From India | Lifestyle & Daily Vlogs | Relatable moments
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- YouTube Section with embed + sub count / views -->
+  <section id="youtube">
+    <div class="container">
+      <h2>🎬 Latest Vlogs</h2>
+      <div class="youtube-stats">
+        <span><i class="fab fa-youtube"></i> 35K+ Subscribers</span>
+        <span><i class="fas fa-eye"></i> 72M+ Total Views</span>
+        <a href="https://www.youtube.com/@Juliyavlogs07" target="_blank" class="btn btn-outline" style="padding: 0.4rem 1.2rem; font-size: 0.9rem;">Visit Channel <i class="fas fa-arrow-right"></i></a>
+      </div>
+      <!-- embedded latest videos grid: using placeholder but realistic embed IDs (popular vlogger vibe) 
+           Actually we embed sample relatable vlogs: we can use official embed from a demo, but we simulate recent videos: 
+           For a real creator, these would be actual videos. Use generic YouTube embeds that show 'Juliyavlogs' style
+           but to keep clean: we embed some lifestyle shorts/vlogs examples (public domain friendly using placeholder)
+           Alternatively we embed actual demo vlog from YT? I'll embed demo videos that represent relatable content. 
+           For best practice: embed using channel latest? Since not API, we showcase placeholder lifestyle related videos -->
+      <div class="video-grid">
+        <div class="video-card">
+          <iframe src="https://www.youtube.com/embed/sxTFQHzDuzk?si=iM9S22efAI9-yjEH" title="Daily Vlog"></iframe>
+          <div style="padding: 0.8rem;"><strong>Last slice ke liye fight ho gayi 😱🍕</strong><br><span style="font-size:0.8rem;">10K views · 2 days ago</span></div>
+        </div>
+        <div class="video-card">
+          <iframe src="https://www.youtube.com/embed/pH3cbQmUegI?si=V2w_CrusAMjV9jW9" title="Lifestyle India"></iframe>
+          <div style="padding: 0.8rem;"><strong>Ye Lagao or Glow dekho 😍✨</strong><br><span style="font-size:0.8rem;">25K views · 1 week ago</span></div>
+        </div>
+        <div class="video-card">
+          <iframe src="https://www.youtube.com/embed/EtzqwoA6U3Y?si=bFlZG3tl7xbQBypw" title="Motivational vlog"></iframe>
+          <div style="padding: 0.8rem;"><strong>Aiye kese kre vlogging 🫶😇</strong><br><span style="font-size:0.8rem;">18K views · 3 days ago</span></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Social Media Section -->
+  <section id="social">
+    <div class="container">
+      <h2>Connect with me 🌸</h2>
+      <div class="social-links">
+        <a href="https://www.instagram.com/fitpratima_/?hl=en" target="_blank" class="social-icon"><i class="fab fa-instagram"></i></a>
+        <a href="https://www.facebook.com/km.pratima.16" target="_blank" class="social-icon"><i class="fab fa-facebook-f"></i></a>
+        <a href="https://www.youtube.com/@Juliyavlogs07" target="_blank" class="social-icon"><i class="fab fa-youtube"></i></a>
+      </div>
+      <p style="margin-top: 0.5rem;">Instagram: @fitpratima &nbsp;&nbsp;|&nbsp;&nbsp; Facebook: Km pratima</p>
+    </div>
+  </section>
+
+  <!-- Gallery Section - vlog-style images (travel, lifestyle, daily moments) -->
+  <section id="gallery">
+    <div class="container">
+      <h2>📸 Vlog Memories</h2>
+      <div class="gallery-grid">
+        <div class="gallery-item"><img src="https://placehold.co/500x400/2e2a24/f5b042?text=Travel+Diary" alt="travel vlog"></div>
+        <div class="gallery-item"><img src="https://placehold.co/500x400/29231c/f5c45c?text=Daily+Coffee+Moments" alt="lifestyle"></div>
+        <div class="gallery-item"><img src="https://placehold.co/500x400/322b22/f5b042?text=Indian+Festival+Vibes" alt="festival"></div>
+        <div class="gallery-item"><img src="https://placehold.co/500x400/241f18/e0b354?text=Motivation+Shoot" alt="motivation"></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Testimonials / message -->
+  <section>
+    <div class="container">
+      <div class="testimonial">
+        <i class="fas fa-quote-left" style="color: var(--gold-primary); font-size: 2rem; opacity: 0.7;"></i>
+        <p style="margin: 0.8rem 0;">"I am here today because of my subscribers and viewers ❤️ Thank you so much!"</p>
+        <div>— Juliyavlogs 07, with love from India</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Contact Section with email form + country -->
+  <section id="contact">
+    <div class="container">
+      <h2>Let's talk 💌</h2>
+      <div class="contact-form">
+        <form id="contactForm" action="#" method="post">
+          <div class="form-group">
+            <input type="text" id="name" placeholder="Your Name" required>
+          </div>
+          <div class="form-group">
+            <input type="email" id="email" placeholder="Email Address" required>
+          </div>
+          <div class="form-group">
+            <textarea rows="4" id="message" placeholder="Your sweet message..." required></textarea>
+          </div>
+          <button type="submit" class="btn-submit"><i class="fas fa-paper-plane"></i> Send Message</button>
+          <div class="country-badge">
+            <i class="fas fa-flag-checkered"></i> Based in India 🇮🇳
+          </div>
+        </form>
+        <div id="formFeedback" style="margin-top: 1rem; color: #ffce7a;"></div>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer>
+  <p>Keep Supporting ❤️ | Juliyavlogs 07 – Real Moments, Real Life, Real Me</p>
+  <p style="margin-top: 0.5rem; font-size: 0.8rem;">&copy; 2026 | Spreading happiness one vlog at a time</p>
+</footer>
+
+<script>
+  // Smooth scrolling for navbar links
+  document.querySelectorAll('.nav-links a, .btn-primary[href="#youtube"], .btn-outline[href="#youtube"]').forEach(anchor => {
+    anchor.addEventListener('click', function(e) {
+      const targetId = this.getAttribute('href');
+      if (targetId && targetId !== '#' && targetId.startsWith('#')) {
+        e.preventDefault();
+        const targetElem = document.querySelector(targetId);
+        if (targetElem) {
+          targetElem.scrollIntoView({ behavior: 'smooth', block: 'start' });
+        }
+      }
+    });
+  });
+  // Also ensure watch videos button works nicely
+  const watchBtn = document.querySelector('.btn-primary[href="#youtube"]');
+  if(watchBtn) {
+    watchBtn.addEventListener('click', (e) => {
+      e.preventDefault();
+      document.querySelector('#youtube').scrollIntoView({ behavior: 'smooth' });
+    });
+  }
+  // Subscribe Now opens youtube subscribe link (already working)
+  // Contact Form UI handling (not actual backend but shows demo alert)
+  const form = document.getElementById('contactForm');
+  const feedbackDiv = document.getElementById('formFeedback');
+  if(form) {
+    form.addEventListener('submit', function(e) {
+      e.preventDefault();
+      const name = document.getElementById('name').value.trim();
+      const email = document.getElementById('email').value.trim();
+      const msg = document.getElementById('message').value.trim();
+      if(name === '' || email === '' || msg === '') {
+        feedbackDiv.innerHTML = '❌ Please fill in all fields.';
+        setTimeout(() => { feedbackDiv.innerHTML = ''; }, 2500);
+        return;
+      }
+      if(!email.includes('@')) {
+        feedbackDiv.innerHTML = '⚠️ Enter a valid email address.';
+        setTimeout(() => { feedbackDiv.innerHTML = ''; }, 2500);
+        return;
+      }
+      feedbackDiv.innerHTML = `✨ Thank you ${name}! Your message warms my heart. I'll get back soon. ✨`;
+      form.reset();
+      setTimeout(() => { feedbackDiv.innerHTML = ''; }, 4000);
+    });
+  }
+
+  // Additional hover effects / smooth animations are css native.
+  // For extra interactive hover: stats row and gallery fully ready.
+  // Also dynamic year maybe footer? Already static
+
+  // Simulate dynamic subscriber counts animated? Not needed but adds gold vibe
+  // On load we could add some entrance animations (optional)
+  window.addEventListener('DOMContentLoaded', () => {
+    // little golden touch: fade-in effect for sections
+    const sections = document.querySelectorAll('section');
+    sections.forEach((sec, idx) => {
+      sec.style.opacity = '0';
+      sec.style.transform = 'translateY(20px)';
+      sec.style.transition = 'opacity 0.5s ease, transform 0.5s ease';
+      setTimeout(() => {
+        sec.style.opacity = '1';
+        sec.style.transform = 'translateY(0px)';
+      }, idx * 100);
+    });
+    // Correct first section home
+    const heroSec = document.querySelector('#home');
+    if(heroSec) {
+      heroSec.style.opacity = '1';
+      heroSec.style.transform = 'none';
+    }
+  });
+</script>
+<!-- additional style for hero section fixed initial opacity -->
+<style>
+  section { opacity: 1; transform: none; transition: none; }
+  #home { opacity: 1; transform: none; }
+  /* But keep the gentle animation for others (optional) better default */
+  .video-card, .gallery-item, .social-icon { transition: all 0.25s cubic-bezier(0.2, 0.9, 0.4, 1.1); }
+  ::selection { background: var(--gold-primary); color: #0a0a0a; }
+</style>
+</body>
+</html>
